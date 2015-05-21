@@ -26,11 +26,6 @@ function getMediaURL(s) {
 
 function playAudio() {
     if (!playing) {
-
-        if (myMedia === null) {
-            updateMedia();
-        }
-
         myMedia.play();
         document.getElementById('play').innerHTML = "Pause";
         playing = true;
@@ -75,11 +70,12 @@ function updateMedia(src) {
             // success callback
             function(position) {
                 if (position > -1) {
-                    positionVal = Math.round(position) + "";
+                    positionVal = Math.round(position);
                     positionVal = positionVal + "";
                     // document.getElementById('audio_position').innerHTML = positionVal + " seconds";
                     document.getElementById('audio_position').innerHTML = positionVal.toHHMMSS();
                     console.log(positionVal + " seconds");
+                    console.log(positionVal.toHHMMSS());
                 }
             },
             // error callback
