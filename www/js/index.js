@@ -66,6 +66,6 @@ function setAudioPosition(position) {
 }
 function onDeviceReady() {
     updateMedia();
-	document.querySelector("#playFZN").addEventListener("touchend", playAudio, false);
+	document.querySelector("#play").addEventListener("touchend", playAudio, false);
 };
 
