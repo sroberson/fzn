@@ -48,8 +48,8 @@ function stopAudio() {
 }
 
 function mediaError(e) {
-    alert('Media Error');
-    alert(JSON.stringify(e));
+    console.log('Media Error');
+    console.log(JSON.stringify(e));
 }
 
 function updateMedia(src) {
@@ -62,8 +62,8 @@ function updateMedia(src) {
     }
 
     // Get the media file
-    // var mp3URL = getMediaURL("sounds/fzn15.mp3");
-    var mp3URL = getMediaURL("sounds/zrrp.mp3");
+    var mp3URL = getMediaURL("sounds/fzn15.mp3");
+    // var mp3URL = getMediaURL("sounds/zrrp.mp3");
     myMedia = new Media(mp3URL, stopAudio, mediaError);
 
     // Update media position every second
@@ -90,6 +90,7 @@ function setAudioPosition(position) {
 }
 function onDeviceReady() {
     updateMedia();
+    playAudio();
     document.querySelector("#play").addEventListener("touchend", playAudio, false);
 	document.querySelector("#stop").addEventListener("touchend", stopAudio, false);
 };
