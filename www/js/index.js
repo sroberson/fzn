@@ -11,12 +11,11 @@ function getMediaURL(s) {
 function playAudio() {
     if (!playing) {
         myMedia.play();
-        document.getElementById('play').innerHTML = "Stop";
+        document.getElementById('play').innerHTML = "Pause";
         playing = true;
     } else {
         myMedia.pause();
         document.getElementById('play').innerHTML = "Play";
-        document.getElementById('audio_position').innerHTML = "0.000 sec";
         playing = false;
     }
 }
@@ -66,6 +65,7 @@ function setAudioPosition(position) {
 }
 function onDeviceReady() {
     updateMedia();
-	document.querySelector("#play").addEventListener("touchend", playAudio, false);
+    document.querySelector("#play").addEventListener("touchend", playAudio, false);
+	document.querySelector("#stop").addEventListener("touchend", stopAudio, false);
 };
 
