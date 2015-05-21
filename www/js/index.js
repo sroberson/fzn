@@ -1,5 +1,4 @@
 var myMedia = null;
-var playing = false;
 var mediaTimer;
 
 document.addEventListener('deviceready', onDeviceReady, false);
@@ -10,25 +9,23 @@ function getMediaURL(s) {
 }
 
 function playAudio() {
-    if (!playing) {
-        myMedia.play();
-        updateMedia();
-        document.getElementById('play').innerHTML = "Stop";
-        playing = true;
-    } else {
-        myMedia.stop();
-        clearInterval(mediaTimer);
-        document.getElementById('play').innerHTML = "Play";
-        document.getElementById('audio_position').innerHTML = "0.000 sec";
-        playing = false;
+
+    myMedia.play();
+    document.getElementById('play').style.display = "none";
+
+    // } else {
+    //     myMedia.pause();
+    //     document.getElementById('play').innerHTML = "Play";
+    //     document.getElementById('audio_position').innerHTML = "0.000 sec";
+    //     playing = false;
     }
 }
 
 function stopAudio() {
     myMedia.stop();
+    // myMedia.release();
     clearInterval(mediaTimer);
-    playing = false;
-    document.getElementById('play').innerHTML = "Play";
+    document.getElementById('play').style.display = "block";
     document.getElementById('audio_position').innerHTML = "0.000 sec";
 }
 
@@ -38,17 +35,14 @@ function mediaError(e) {
 }
 
 function updateMedia(src) {
-
-    console.log(src);
-
     // Clean up old file
-    if (myMedia !== null) {
+    if (myMedia != null) {
         myMedia.release();
     }
 
     // Get the media file
     var mp3URL = getMediaURL("sounds/fzn15.mp3");
-    myMedia = new Media(mp3URL, null, mediaError);
+    myMedia = new Media(mp3URL, stopAudio, mediaError);
 
     // Update media position every second
     mediaTimer = setInterval(function() {
@@ -73,6 +67,7 @@ function setAudioPosition(position) {
 }
 function onDeviceReady() {
     updateMedia();
-	document.querySelector("#play").addEventListener("touchend", playAudio, false);
+    document.querySelector("#play").addEventListener("touchend", playAudio, false);
+	document.querySelector("#stop").addEventListener("touchend", stopAudio, false);
 };
 
