@@ -21,12 +21,12 @@ function playAudio() {
     }
 }
 
-// function stopAudio() {
-//     myMedia.stop();
-//     playing = false;
-//     document.getElementById('play').innerHTML = "Play";
-//     document.getElementById('audio_position').innerHTML = "0.000 sec";
-// }
+function stopAudio() {
+    myMedia.stop();
+    playing = false;
+    document.getElementById('play').innerHTML = "Play";
+    document.getElementById('audio_position').innerHTML = "0.000 sec";
+}
 
 function mediaError(e) {
     alert('Media Error');
@@ -41,7 +41,7 @@ function updateMedia(src) {
 
     // Get the media file
     var mp3URL = getMediaURL("sounds/fzn15.mp3");
-    myMedia = new Media(mp3URL, playAudio, mediaError);
+    myMedia = new Media(mp3URL, stopAudio, mediaError);
 
     // Update media position every second
     var mediaTimer = setInterval(function() {
@@ -64,7 +64,6 @@ function updateMedia(src) {
 function setAudioPosition(position) {
    document.getElementById('audio_position').innerHTML = position;
 }
-
 function onDeviceReady() {
     updateMedia();
 	document.querySelector("#play").addEventListener("touchend", playAudio, false);
