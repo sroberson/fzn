@@ -5,3 +5,4 @@ footer a { color: #fff; }
 .padding-top-30 {padding-top: 30px;}
 .container {background: #fff; padding-top: 30px; padding-bottom: 30px; }
 ul {list-style-type: none;}
+img {max-width: 100%;}
