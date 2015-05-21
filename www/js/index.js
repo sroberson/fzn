@@ -50,7 +50,7 @@ function updateMedia(src) {
             // success callback
             function(position) {
                 if (position > -1) {
-                    document.getElementById('audio_position').innerHTML = position + " sec";
+                    document.getElementById('audio_position').innerHTML = Math.round(position) + " sec";
                 }
             },
             // error callback
