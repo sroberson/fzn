@@ -75,9 +75,10 @@ function updateMedia(src) {
             // success callback
             function(position) {
                 if (position > -1) {
-                    positionVal = Math.round(position);
-                    console.log(positionVal.toHHMMSS());
+                    positionVal = Math.round(position) + "";
+                    positionVal = positionVal + "";
                     document.getElementById('audio_position').innerHTML = positionVal + " seconds";
+                    console.log(positionVal.toHHMMSS());
                 }
             },
             // error callback
