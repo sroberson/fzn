@@ -1,5 +1,6 @@
 var myMedia = null;
 var playing = false;
+var mediaTimer;
 
 document.addEventListener('deviceready', onDeviceReady, false);
 
@@ -11,10 +12,12 @@ function getMediaURL(s) {
 function playAudio() {
     if (!playing) {
         myMedia.play();
+        updateMedia();
         document.getElementById('play').innerHTML = "Stop";
         playing = true;
     } else {
         myMedia.stop();
+        clearInterval(mediaTimer);
         document.getElementById('play').innerHTML = "Play";
         document.getElementById('audio_position').innerHTML = "0.000 sec";
         playing = false;
@@ -34,6 +37,9 @@ function mediaError(e) {
 }
 
 function updateMedia(src) {
+
+    console.log(src);
+
     // Clean up old file
     if (myMedia != null) {
         myMedia.release();
@@ -44,7 +50,7 @@ function updateMedia(src) {
     myMedia = new Media(mp3URL, stopAudio, mediaError);
 
     // Update media position every second
-    var mediaTimer = setInterval(function() {
+    mediaTimer = setInterval(function() {
         // get media position
         myMedia.getCurrentPosition(
             // success callback
