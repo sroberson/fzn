@@ -11,35 +11,84 @@
         <title>Hello World</title>
     </head>
     <body>
-        <header>
+        <header class="text-center">
             <h1>Fa Zheng Nian</h1>
         </header>
 
         <section class="container">
 
-            <p>
-                <button id="playFZN">Play FZN</button>
-            </p>
+            <div class="row text-center">
 
-            <p>
-                fah jung chyen kwuhn<br/>
-                shyeh uh! chwen myeh
-            </p>
-            <p>
-                fah jung tyen dee<br/>
-                shyen shrr shyen baow
-            </p>
+                <div class="col-xs-6">
+                    <button href="#" onclick="playAudio()" id="playFZN">Play</button>
+                </div>
 
-            <p><a href="http://www.clearwisdom.net/emh/articles/2002/10/14/27578.html" target="_blank">Original Article</a></p>
-            <p><a href="http://en.minghui.org/html/articles/2001/6/12/11429.html" target="_blank">Pictures</a></p>
-            <p><a href="http://en.minghui.org/html/articles/2005/3/12/58362.html" target="_blank">Reference</a></p>
+                <div class="col-xs-6" id="audio_position">
+                    0.000 sec
+                </div>
+            </div>
+
+            <div class="row text-center padding-top-30">
+                <div class="col-xs-6">
+                    <a target="_blank"
+                        href="http://en.minghui.org/emh/article_images/2001-6-12-shifu_lizhang.jpg">
+                        <img src="http://en.minghui.org/emh/article_images/shifu_lizhang--ss.jpg" alt="" />
+                        <br/>
+                        <strong>Holding One Palm Erect</strong>
+                    </a>
+                </div>
+                <div class="col-xs-6">
+                    <a target="_blank"
+                        href="http://en.minghui.org/emh/article_images/2001-6-12-shifu_lianhua.jpg">
+                        <img src="http://en.minghui.org//emh/article_images/shifu_lianhua--ss.jpg" alt="" />
+                        <br/>
+                        <strong>The Lotus Hand Position</strong>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row text-center padding-top-30">
+                <div class="col-xs-12">
+                    <img src="images/koujue_1.gif" alt="" />
+                </div>
+                <div class="col-xs-12">
+                    fah jung chyen kwuhn<br/>
+                    shyeh uh! chwen myeh
+                </div>
+            </div>
+            <hr/>
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    <img src="images/koujue_2.gif" alt="" />
+                </div>
+                <div class="col-xs-12">
+                    fah jung tyen dee<br/>
+                    shyen shrr shyen baow
+                </div>
+            </div>
+
         </section>
 
         <footer>
-            &nbsp;
+            <ul>
+                <li>
+                    <a href="http://www.clearwisdom.net/emh/articles/2002/10/14/27578.html">Original Article</a>
+                </li>
+                <li>
+                    <a href="http://en.minghui.org/html/articles/2001/6/12/11429.html">Pictures</a>
+                </li>
+                <li>
+                    <a href="http://en.minghui.org/html/articles/2005/3/12/58362.html">Reference</a>
+                </li>
+            </ul>
         </footer>
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+
+<!--
+    Reference:
+    http://simonmacdonald.blogspot.ca/2011/05/using-media-class-in-phonegap.html
+-->
     </body>
 </html>

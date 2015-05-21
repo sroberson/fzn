@@ -1,3 +1,7 @@
 body {background: #198eff; font-size: 20px;}
-header, footer {min-height: 100px; text-align: center; padding: 20px; }
-a {color: #fff; font-weight: bold;}
+header, footer {min-height: 100px; padding: 20px; color: #fff; }
+a {font-weight: bold;}
+footer a { color: #fff; }
+.padding-top-30 {padding-top: 30px;}
+.container {background: #fff; padding-top: 30px; padding-bottom: 30px; }
+ul {list-style-type: none;}

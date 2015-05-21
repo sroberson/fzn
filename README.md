@@ -1,3 +1,4 @@
 # Fa Zheng Nian #
 
-This is an application that will play the audio file when you press the button.
+This is a PhoneGap application that will play the FZN mp3 file when it launches.
+
