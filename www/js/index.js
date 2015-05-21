@@ -77,8 +77,9 @@ function updateMedia(src) {
                 if (position > -1) {
                     positionVal = Math.round(position) + "";
                     positionVal = positionVal + "";
-                    document.getElementById('audio_position').innerHTML = positionVal + " seconds";
-                    console.log(positionVal.toHHMMSS());
+                    // document.getElementById('audio_position').innerHTML = positionVal + " seconds";
+                    document.getElementById('audio_position').innerHTML = positionVal.toHHMMSS();
+                    console.log(positionVal + " seconds");
                 }
             },
             // error callback
