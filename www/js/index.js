@@ -43,7 +43,7 @@ function playAudio() {
 
 function stopAudio() {
     myMedia.stop();
-    clearInterval(mediaTimer);
+    // clearInterval(mediaTimer);
     playing = false;
     document.getElementById('play').innerHTML = "Play";
     document.getElementById('audio_position').innerHTML = "0.000 sec";
