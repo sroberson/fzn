@@ -1,5 +1,5 @@
 var myMedia = null;
-var mediaTimer;
+var playing = false;
 
 document.addEventListener('deviceready', onDeviceReady, false);
 
@@ -9,23 +9,22 @@ function getMediaURL(s) {
 }
 
 function playAudio() {
-
-    myMedia.play();
-    document.getElementById('play').style.display = "none";
-
-    // } else {
-    //     myMedia.pause();
-    //     document.getElementById('play').innerHTML = "Play";
-    //     document.getElementById('audio_position').innerHTML = "0.000 sec";
-    //     playing = false;
+    if (!playing) {
+        myMedia.play();
+        document.getElementById('play').innerHTML = "Stop";
+        playing = true;
+    } else {
+        myMedia.pause();
+        document.getElementById('play').innerHTML = "Play";
+        document.getElementById('audio_position').innerHTML = "0.000 sec";
+        playing = false;
     }
 }
 
 function stopAudio() {
     myMedia.stop();
-    // myMedia.release();
-    clearInterval(mediaTimer);
-    document.getElementById('play').style.display = "block";
+    playing = false;
+    document.getElementById('play').innerHTML = "Play";
     document.getElementById('audio_position').innerHTML = "0.000 sec";
 }
 
@@ -42,10 +41,10 @@ function updateMedia(src) {
 
     // Get the media file
     var mp3URL = getMediaURL("sounds/fzn15.mp3");
-    myMedia = new Media(mp3URL, stopAudio, mediaError);
+    myMedia = new Media(mp3URL, playAudio, mediaError);
 
     // Update media position every second
-    mediaTimer = setInterval(function() {
+    var mediaTimer = setInterval(function() {
         // get media position
         myMedia.getCurrentPosition(
             // success callback
@@ -67,7 +66,6 @@ function setAudioPosition(position) {
 }
 function onDeviceReady() {
     updateMedia();
-    document.querySelector("#play").addEventListener("touchend", playAudio, false);
-	document.querySelector("#stop").addEventListener("touchend", stopAudio, false);
+	document.querySelector("#play").addEventListener("touchend", playAudio, false);
 };
 
