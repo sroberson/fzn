@@ -14,7 +14,7 @@ function playAudio() {
         document.getElementById('play').innerHTML = "Stop";
         playing = true;
     } else {
-        myMedia.pause();
+        myMedia.stop();
         document.getElementById('play').innerHTML = "Play";
         document.getElementById('audio_position').innerHTML = "0.000 sec";
         playing = false;
