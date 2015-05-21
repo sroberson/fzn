@@ -26,6 +26,7 @@ function playAudio() {
 
 function stopAudio() {
     myMedia.stop();
+    clearInterval(mediaTimer);
     playing = false;
     document.getElementById('play').innerHTML = "Play";
     document.getElementById('audio_position').innerHTML = "0.000 sec";
@@ -41,13 +42,13 @@ function updateMedia(src) {
     console.log(src);
 
     // Clean up old file
-    if (myMedia != null) {
+    if (myMedia !== null) {
         myMedia.release();
     }
 
     // Get the media file
     var mp3URL = getMediaURL("sounds/fzn15.mp3");
-    myMedia = new Media(mp3URL, stopAudio, mediaError);
+    myMedia = new Media(mp3URL, null, mediaError);
 
     // Update media position every second
     mediaTimer = setInterval(function() {
