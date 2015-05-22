@@ -75,10 +75,11 @@ function updateMedia(src) {
             // success callback
             function(position) {
                 if (position > -1) {
-                    document.getElementById('audio_position').innerHTML = Math.round(position) + " seconds";
+                    //document.getElementById('audio_position').innerHTML = Math.round(position) + " seconds";
                     positionVal = Math.round(position);
                     positionVal = positionVal + "";
-                    console.log(positionVal.toHHMMSS());
+                    //console.log(positionVal.toHHMMSS());
+                    document.getElementById('audio_position').innerHTML = positionVal.toHHMMSS();
                 }
             },
             // error callback
