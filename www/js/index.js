@@ -27,7 +27,7 @@ function getMediaURL(s) {
 function playAudio() {
     if (!playing) {
 
-        if (myMedia === null) {
+        if (!mediaTimer) {
             updateMedia();
         }
 
