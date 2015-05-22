@@ -2,7 +2,7 @@ body {background: #198eff; font-size: 20px;}
 header, footer {min-height: 100px; padding: 20px; color: #fff; }
 a {font-weight: bold;}
 footer { padding-bottom: 40px; }
-footer a { color: #fff; float: right;}
+footer a { color: #fff; }
 footer button {color: #000;}
 .padding-top-30 {padding-top: 30px;}
 .container {background: #fff; padding-top: 30px; padding-bottom: 30px; }
