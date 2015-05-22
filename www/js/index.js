@@ -8,7 +8,9 @@ if (!String.prototype.toHHMMSS) {
         if (hours   < 10) {hours   = "0" + hours;}
         if (minutes < 10) {minutes = "0" + minutes;}
         if (seconds < 10) {seconds = "0" + seconds;}
-        var time    = hours + ':' + minutes + ':' + seconds;
+        // var time    = hours + ':' + minutes + ':' + seconds;
+        // we don't really need hours since this is only 15 mins
+        var time    = minutes + ':' + seconds;
         return time;
     }
 }
